@@ -1,0 +1,23 @@
+{
+  "title": "Stratifying Hospital Readmission Penalties by Community Social Vulnerability: reproducible analysis code and public input data",
+  "description": "Reproducible analysis pipeline and public input data for a budget-neutral simulation of Medicare's Hospital Readmissions Reduction Program (HRRP). A single Jupyter notebook reproduces CMS's FY2026 payment-adjustment factor from public data (validation MAE 0.00016; r = 0.99) and recomputes penalties under CDC/ATSDR Social Vulnerability Index (SVI) peer grouping, holding total penalty dollars fixed ($368.4M), quantifying the reallocation ($14.1M; 3.8%) with county-clustered inference and bootstrap confidence intervals. Bundled inputs are U.S. Government / public-domain CMS and CDC/ATSDR files; the Area Deprivation Index (Neighborhood Atlas) is excluded because its terms restrict redistribution (obtain it via free registration; the notebook treats it as an optional sensitivity).",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "MIT",
+  "creators": [
+    { "name": "Goel, Rajat", "affiliation": "University of the Cumberlands" },
+    { "name": "Schwartz, Jess", "affiliation": "University of the Cumberlands" },
+    { "name": "Luitel, Aashis", "affiliation": "University of the Cumberlands" },
+    { "name": "Tronco, Joseph" }
+  ],
+  "keywords": [
+    "Hospital Readmissions Reduction Program",
+    "HRRP",
+    "Social Vulnerability Index",
+    "Medicare payment policy",
+    "dual eligibility",
+    "health equity",
+    "reproducibility",
+    "health policy"
+  ]
+}

@@ -1,0 +1,4 @@
+metric,n,percent,ci_low,ci_high
+flag status changed,185,6.74,4.99,8.57
+newly flagged (worse vs SVI peers),92,3.35,2.44,4.27
+newly unflagged (better vs SVI peers),93,3.39,2.55,4.37

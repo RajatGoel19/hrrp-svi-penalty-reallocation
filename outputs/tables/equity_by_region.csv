@@ -1,0 +1,5 @@
+region,n,net_newly_flagged_pct,ci_low,ci_high
+Midwest,646,3.1,1.41,5.31
+Northeast,403,2.48,0.0,5.31
+South,1144,-2.01,-3.45,-0.88
+West,550,-1.45,-3.93,0.4

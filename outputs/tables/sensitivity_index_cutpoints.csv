@@ -1,0 +1,9 @@
+specification,most_vuln_delta_pp,least_vuln_delta_pp
+"SVI overall, quintiles",-0.041,0.0338
+"SVI overall, tertiles",-0.0375,0.0342
+"SVI overall, deciles",-0.0255,0.047
+"Socioeconomic theme, quintiles",-0.0393,0.0383
+"Household/disability theme, quintiles",-0.0157,0.044
+"Minority/language theme, quintiles",-0.0309,0.0489
+"Housing/transport theme, quintiles",-0.0024,0.0119
+"Area Deprivation Index (ADI 2023), quintiles",-0.021,0.0083

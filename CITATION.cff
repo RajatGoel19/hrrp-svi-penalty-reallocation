@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+message: "If you use this software or data, please cite it using the metadata below."
+title: "Stratifying Hospital Readmission Penalties by Community Social Vulnerability: reproducible analysis code and public input data"
+abstract: >-
+  Reproducible analysis pipeline for a budget-neutral simulation of Medicare's
+  Hospital Readmissions Reduction Program (HRRP). A single Jupyter notebook
+  reproduces CMS's FY2026 payment-adjustment factor from public data and
+  recomputes penalties under CDC/ATSDR Social Vulnerability Index (SVI) peer
+  grouping, holding total penalty dollars fixed, with county-clustered inference
+  and bootstrap confidence intervals.
+type: software
+authors:
+  - given-names: Rajat
+    family-names: Goel
+    affiliation: University of the Cumberlands
+  - given-names: Jess
+    family-names: Schwartz
+    affiliation: University of the Cumberlands
+  - given-names: Aashis
+    family-names: Luitel
+    affiliation: University of the Cumberlands
+  - given-names: Joseph
+    family-names: Tronco
+version: 1.0.0
+date-released: "2026-07-08"
+license: MIT
+repository-code: "https://github.com/RajatGoel19/hrrp-svi-penalty-reallocation"
+keywords:
+  - Hospital Readmissions Reduction Program
+  - Social Vulnerability Index
+  - Medicare payment policy
+  - dual eligibility
+  - health equity
+  - reproducibility
+preferred-citation:
+  type: article
+  title: "Stratifying Hospital Readmission Penalties by Community Social Vulnerability: A Budget-Neutral Reallocation Simulation"
+  authors:
+    - given-names: Rajat
+      family-names: Goel
+    - given-names: Jess
+      family-names: Schwartz
+    - given-names: Aashis
+      family-names: Luitel
+    - given-names: Joseph
+      family-names: Tronco
+  year: 2026
+  notes: "Manuscript under review at Health Affairs Scholar."
