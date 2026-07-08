@@ -1,5 +1,7 @@
 # Paper 1 — HRRP Penalty Reallocation under Social-Risk Adjustment
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21269652.svg)](https://doi.org/10.5281/zenodo.21269652)
+
 **Research question.** Does stratifying Medicare's Hospital Readmissions Reduction Program (HRRP)
 by **community social vulnerability (SVI)** instead of dual-eligible proportion change which
 hospitals are penalized for excess readmissions — and does it shift penalty burden off hospitals

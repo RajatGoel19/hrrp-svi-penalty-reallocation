@@ -22,6 +22,7 @@ authors:
   - given-names: Joseph
     family-names: Tronco
 version: 1.0.0
+doi: 10.5281/zenodo.21269652
 date-released: "2026-07-08"
 license: MIT
 repository-code: "https://github.com/RajatGoel19/hrrp-svi-penalty-reallocation"
