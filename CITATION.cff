@@ -21,8 +21,8 @@ authors:
     affiliation: University of the Cumberlands
   - given-names: Joseph
     family-names: Tronco
-    affiliation: NYSTEC, Troy, NY, USA
-version: 1.0.6
+    affiliation: Clarkson University, Potsdam, NY, USA
+version: 1.0.7
 doi: 10.5281/zenodo.21269651
 date-released: "2026-09-06"
 license: MIT
