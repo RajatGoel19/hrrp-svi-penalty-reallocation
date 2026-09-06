@@ -117,15 +117,16 @@ code cells. Section numbers (§0–§7) match the headings in the notebook.
 1b. **SVI vs ADI** — Spearman ρ (are the two deprivation indices distinct?).
 2. **Trend** — regress `delta_pp` on continuous SVI, county-clustered → slope, 95% CI, p (is the
    reallocation monotonic?).
-3. **Nested association models** (one fixed complete-case sample, n=2,359; county-clustered) — regress
-   `mean_err` on SVI, adding one block at a time: SVI alone β=0.026 (p<0.001); dual alone β=0.064;
-   **SVI+dual β=0.017 (p<0.001** — SVI adds signal beyond the incumbent measure; incremental R²=0.0066);
-   +ownership β=0.015 (p=0.003); +size β=0.014 (p=0.005); **+region → β=0.009 (p=0.17)**. SVI stays
-   significant until **census region** enters (the single largest R² increment, 0.042→0.063); region — not
-   the dual share — is what attenuates it. VIFs <2.1, so this is not a variance-inflation artifact; whether
-   region is a legitimate control or an over-adjustment (a coarser measure of the same place-based variation
-   SVI captures) is an open specification question, and the full model is reported as a sensitivity.
-   Reproduce with `analysis/svi_nested_regressions.py`.
+3. **Nested association models** (full cohort, all n=2,832 hospitals; county-clustered) — regress
+   `mean_err` on SVI, adding one block at a time: SVI alone β=0.024 (p<0.001); dual alone β=0.059;
+   **SVI+dual β=0.015 (p<0.001** — SVI adds signal beyond the incumbent measure; incremental R²=0.005);
+   +ownership β=0.014 (p=0.003); **+region → β=0.007 (p=0.23)**. SVI stays significant until **census
+   region** enters (the single largest R² increment, 0.035→0.054); region — not the dual share — is what
+   attenuates it. Size enters only as a robustness (log payments n=2,832, β=0.006; or log discharges
+   n=2,359, β=0.009), so no hospitals are dropped and the conclusion is invariant. VIFs <2.2, so this is not
+   a variance-inflation artifact; whether region is a legitimate control or an over-adjustment (a coarser
+   measure of the same place-based variation SVI captures) is an open specification question, and the full
+   model is reported as a sensitivity. Reproduce with `analysis/svi_nested_regressions.py`.
 
 ---
 
