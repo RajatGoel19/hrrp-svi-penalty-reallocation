@@ -22,7 +22,7 @@ authors:
   - given-names: Joseph
     family-names: Tronco
     affiliation: NYSTEC, Troy, NY, USA
-version: 1.0.5
+version: 1.0.6
 doi: 10.5281/zenodo.21269651
 date-released: "2026-09-06"
 license: MIT

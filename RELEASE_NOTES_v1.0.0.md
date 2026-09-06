@@ -14,7 +14,7 @@ A Budget-Neutral Reallocation Simulation."**
 - Validation gate: reconstructed CMS FY2026 payment-adjustment factor with MAE 0.00016, r = 0.99 (92% within ±0.0005).
 - Dollar-neutral counterfactual: reconstructed penalty total $368.4M (k = 0.997; residual $0.000M); $14.1M (3.8%) reallocated under SVI peer grouping.
 - Penalized share 78.6% → 90.9% (n = 2,832) with 12.7% status flips; county-clustered trend slope −0.090 pp per unit SVI (p < 0.001).
-- SVI is not an independent predictor of excess readmissions after adjusting for dual-eligible share (p = 0.25).
+- SVI carries a small but significant independent association with excess readmissions beyond the dual-eligible share (SVI + dual: β≈0.015, p<0.001, all 2,832 hospitals), attenuating to non-significance only when census region is added (β≈0.007, p≈0.23); see `analysis/svi_nested_regressions.py`. Its incremental predictive value is small, so SVI is used as a transparent redistribution lever, not claimed as a better predictor.
 
 ## Data note
 Bundled CMS and CDC/ATSDR files are U.S. Government / public-domain works, included for
