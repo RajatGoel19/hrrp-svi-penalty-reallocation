@@ -117,13 +117,15 @@ code cells. Section numbers (§0–§7) match the headings in the notebook.
 1b. **SVI vs ADI** — Spearman ρ (are the two deprivation indices distinct?).
 2. **Trend** — regress `delta_pp` on continuous SVI, county-clustered → slope, 95% CI, p (is the
    reallocation monotonic?).
-3. **Nested association models** — county-clustered regressions of `mean_err` on SVI: (a) SVI alone
-   (β=0.024, p<0.001); (b) dual alone (β=0.059, p<0.001); (c) **SVI + dual** (SVI β=0.015, **p<0.001** —
-   SVI *does* add signal beyond the incumbent measure, ΔR²≈0.005); (d) **+ ownership + region + log(size)**
-   (SVI β=0.007, p=0.25). SVI's independent association is real but small, and attenuates to
-   non-significance only under the fuller adjustment set (VIFs <2.1, so it reflects variance shared with
-   those plausibly-mediating characteristics, not collinearity). Reproduce with
-   `analysis/svi_nested_regressions.py`.
+3. **Nested association models** (one fixed complete-case sample, n=2,359; county-clustered) — regress
+   `mean_err` on SVI, adding one block at a time: SVI alone β=0.026 (p<0.001); dual alone β=0.064;
+   **SVI+dual β=0.017 (p<0.001** — SVI adds signal beyond the incumbent measure; incremental R²=0.0066);
+   +ownership β=0.015 (p=0.003); +size β=0.014 (p=0.005); **+region → β=0.009 (p=0.17)**. SVI stays
+   significant until **census region** enters (the single largest R² increment, 0.042→0.063); region — not
+   the dual share — is what attenuates it. VIFs <2.1, so this is not a variance-inflation artifact; whether
+   region is a legitimate control or an over-adjustment (a coarser measure of the same place-based variation
+   SVI captures) is an open specification question, and the full model is reported as a sensitivity.
+   Reproduce with `analysis/svi_nested_regressions.py`.
 
 ---
 
@@ -161,7 +163,8 @@ code cells. Section numbers (§0–§7) match the headings in the notebook.
 Plain-language recap: the gate passes, the reallocation shifts penalties off the most vulnerable
 hospitals (dollar-neutral, county-clustered trend p < 0.001), SVI carries a small,
 specification-dependent independent association beyond dual-eligibility (significant alongside dual,
-attenuating under fuller adjustment), and a simplified check reproduces the direction.
+ownership, and size; attenuating to non-significance only when census region is added), and a
+simplified check reproduces the direction.
 
 ---
 

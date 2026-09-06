@@ -2,42 +2,51 @@
 
 Reproduce with `python analysis/svi_nested_regressions.py` (reads
 `data/processed/official_counterfactual.csv`). County-clustered (CR) standard errors throughout.
+**All models run on one fixed complete-case sample (n = 2,359)** so the sequence is genuinely nested —
+adding a variable, not also changing the rows.
 
 ## Why this exists
 
-The manuscript originally reported only the **fully adjusted** model and concluded that SVI adds
-"no independent predictive information" about readmissions beyond the dual-eligible share (β=0.007,
-p=0.25). That single model is **over-adjusted**: ownership, region, and size plausibly sit on the
-pathway between community vulnerability and measured readmissions, so conditioning on them absorbs
-SVI's association. The nested sequence below shows what the data actually say.
+The first draft reported only the **fully adjusted** model and concluded that SVI adds "no independent
+predictive information" beyond the dual-eligible share. A single fully-adjusted model can't support
+that. The nested sequence below — adding one characteristic at a time on a fixed sample — shows exactly
+which variable moves the SVI coefficient.
 
-## Results (FY2026)
+## Results (FY2026, n = 2,359, county-clustered)
 
-| Model | n | SVI β (p) | dual β (p) | R² |
-|---|---|---|---|---|
-| 1. ERR ~ SVI | 2,832 | **+0.024 (p<0.001)** | — | 0.014 |
-| 2. ERR ~ dual | 2,832 | — | +0.059 (p<0.001) | 0.028 |
-| 3. ERR ~ SVI + dual | 2,832 | **+0.015 (p<0.001)** | +0.051 (p<0.001) | 0.033 |
-| 4. + ownership + region + size | 2,359\* | +0.009 (p=0.17) | +0.078 (p<0.001) | 0.063 |
+| Model | SVI β [95% CI] | p | R² |
+|---|---|---|---|
+| 1. ERR ~ SVI | +0.026 [0.017, 0.035] | <0.001 | 0.017 |
+| ERR ~ dual (ref.) | — | — | 0.030 |
+| 2. ERR ~ SVI + dual | **+0.017 [0.008, 0.027]** | **<0.001** | 0.036 |
+| 3. + ownership | +0.015 [0.005, 0.024] | 0.003 | 0.040 |
+| 4. + size | +0.014 [0.004, 0.023] | 0.005 | 0.042 |
+| 5. + region (**full**) | +0.009 [−0.004, 0.021] | 0.17 | 0.063 |
 
-\* The full model drops 473 hospitals that lack a discharge count for `log(size)`. The manuscript's
-reported full-model figure (β=0.007, p=0.25, n=2,832) uses the same covariates on the full cohort; the
-direction and conclusion are identical.
-
-- **SVI vs dual:** Spearman ρ = 0.305 (≈9.3% shared rank variance) — the two measures are far from
-  identical.
-- **VIFs** (full model): all < 2.1 (SVI 1.48, dual 1.52, region_South 2.08) → **no collinearity**; the
-  attenuation of SVI from model 3 to model 4 is shared variance with those (plausibly mediating)
-  hospital characteristics, not variance-inflation instability.
+- **SVI vs dual:** Spearman ρ = 0.315 (~10% shared rank variance) — modest, **not** redundant.
+- **Incremental R² of SVI over dual alone = 0.0066.**
+- **VIFs** (full model) all < 2.1 (highest region_South = 2.08).
+- dual in the full model: β = 0.078, p < 0.001.
 
 ## Interpretation
 
-SVI carries a **small but statistically significant independent association** with readmissions beyond
-the incumbent dual measure (model 3, p<0.001; incremental R² ≈ 0.005). It attenuates to
-non-significance **only** after further adjusting for ownership, region, and size. We therefore do not
-claim SVI is a materially stronger predictor than the dual-eligible share — its independent outcome
-signal is modest and specification-dependent — but neither is it inert. The paper's contribution is the
-**budget-neutral reallocation** (≈$14.1M, 3.8%), which is independent of SVI's predictive value.
+- Adding **dual** attenuates SVI (0.026 → 0.017) but it stays clearly significant (p < 0.001): SVI and
+  dual are only modestly correlated and are **not** redundant (so "adjust for one, drop the other"
+  does not follow).
+- SVI remains significant after adding **ownership** and **size**.
+- SVI becomes non-significant **only when census REGION enters** (model 5), which also produces the
+  single largest jump in R² (0.042 → 0.063). **Region — not the dual share — is the attenuating
+  variable.**
+- VIFs < 2.1, so the attenuation is not a variance-inflation artifact. Whether region is a legitimate
+  control or an over-adjustment — region is a coarser measure of the same place-based variation SVI is
+  constructed to capture — is an **open specification question**; the fully adjusted model is reported
+  as a **sensitivity**, not the primary characterization.
 
-_Correction prompted by a methodological point from an external reader (three nested models vs. a
-single over-adjusted model); analysis and headline reallocation results are unchanged._
+SVI carries a small but statistically significant independent association with readmissions beyond the
+incumbent dual measure (models 2–4). The paper does not claim SVI is a materially better predictor; its
+value is as a transparent redistribution lever, and the headline budget-neutral reallocation
+(~$14.1M, 3.8%) does not depend on this regression.
+
+_Correction prompted by independent methodological feedback from two external readers (nested,
+fixed-sample models; add one variable at a time). Analysis and headline reallocation results are
+unchanged._
