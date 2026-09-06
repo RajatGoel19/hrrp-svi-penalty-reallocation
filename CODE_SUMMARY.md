@@ -117,9 +117,13 @@ code cells. Section numbers (§0–§7) match the headings in the notebook.
 1b. **SVI vs ADI** — Spearman ρ (are the two deprivation indices distinct?).
 2. **Trend** — regress `delta_pp` on continuous SVI, county-clustered → slope, 95% CI, p (is the
    reallocation monotonic?).
-3. **Adjusted association** — `mean_err ~ SVI + dual_proportion + ownership + region + log(size)`,
-   county-clustered → SVI coefficient and dual coefficient. **This is the cell that shows SVI is *not*
-   independently associated with readmissions once dual proportion is in the model (p ≈ 0.25).**
+3. **Nested association models** — county-clustered regressions of `mean_err` on SVI: (a) SVI alone
+   (β=0.024, p<0.001); (b) dual alone (β=0.059, p<0.001); (c) **SVI + dual** (SVI β=0.015, **p<0.001** —
+   SVI *does* add signal beyond the incumbent measure, ΔR²≈0.005); (d) **+ ownership + region + log(size)**
+   (SVI β=0.007, p=0.25). SVI's independent association is real but small, and attenuates to
+   non-significance only under the fuller adjustment set (VIFs <2.1, so it reflects variance shared with
+   those plausibly-mediating characteristics, not collinearity). Reproduce with
+   `analysis/svi_nested_regressions.py`.
 
 ---
 
@@ -155,8 +159,9 @@ code cells. Section numbers (§0–§7) match the headings in the notebook.
 
 ## §7 — Summary *(markdown)*
 Plain-language recap: the gate passes, the reallocation shifts penalties off the most vulnerable
-hospitals (dollar-neutral, county-clustered trend p < 0.001), SVI is not independently predictive
-beyond dual-eligibility, and a simplified check reproduces the direction.
+hospitals (dollar-neutral, county-clustered trend p < 0.001), SVI carries a small,
+specification-dependent independent association beyond dual-eligibility (significant alongside dual,
+attenuating under fuller adjustment), and a simplified check reproduces the direction.
 
 ---
 

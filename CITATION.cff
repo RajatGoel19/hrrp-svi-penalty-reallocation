@@ -22,9 +22,9 @@ authors:
   - given-names: Joseph
     family-names: Tronco
     affiliation: NYSTEC, Troy, NY, USA
-version: 1.0.1
+version: 1.0.3
 doi: 10.5281/zenodo.21269651
-date-released: "2026-07-09"
+date-released: "2026-09-06"
 license: MIT
 repository-code: "https://github.com/RajatGoel19/hrrp-svi-penalty-reallocation"
 keywords:

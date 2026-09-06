@@ -133,7 +133,7 @@ groups confirmed as dual-proportion quintiles (5 × n=589, dual proportion risin
 
 ### 5.2 PRIMARY - official recompute under SVI peer grouping, **dollar-neutral** (FY2026, n=2,832)
 - Penalty status changed for **12.7%** of hospitals; total penalty **dollars** held constant (k=0.997).
-- **SVI is NOT independently associated** with ERR after adjusting for dual proportion (β=0.007, p=0.25; dual β=0.071, p<0.001), county-clustered - its outcome signal overlaps dual. Trend slope **−0.090** (p<0.001). The paper is **re-centered on the reallocation**, with SVI as a transparent redistribution lever, not a better predictor.
+- **SVI carries a small but significant independent association** with ERR beyond the incumbent dual measure (nested county-clustered models: SVI-only β=0.024, p<0.001; **with dual, SVI β=0.015, p<0.001**, ΔR²≈0.005). It attenuates to non-significance **only** after further adjusting for ownership, region, and size (β=0.007, p=0.25; dual β=0.071, p<0.001; VIFs all <2.1, so this reflects variance shared with those plausibly-mediating characteristics, not collinearity). Trend slope **−0.090** (p<0.001). The paper is **centered on the reallocation**: SVI's incremental predictive value is modest and specification-dependent, so SVI is used as a transparent redistribution lever, not claimed as a better predictor. See [`analysis/svi_nested_regressions.py`](analysis/svi_nested_regressions.py).
 - Per-hospital change in payment reduction (pp of base operating DRG payments):
 
 | SVI quintile (5 = most vulnerable) | n | Mean Δ (pp) | 95% CI |
@@ -173,7 +173,7 @@ so the reallocation is **not specific to SVI** (`outputs/tables/sensitivity_inde
 - **Dollar-neutral is the primary spec** (total penalty *dollars* held constant; $ columns sum to ~0).
   The *count* penalized still rises (more hospitals incur a *smaller* penalty); the reallocation is the result.
 - **Relative** payment-reduction (pp), not absolute **$** - now reported as approximate dollars via total Medicare inpatient payments (a proxy for the base operating DRG base).
-- **SVI not independently predictive** (p=0.25 after dual adjustment) - paper re-centered on the *reallocation*; SVI is a transparent redistribution lever, not a better predictor.
+- **SVI's independent predictive value is small and specification-dependent** - significant beyond dual alone (β=0.015, p<0.001) but attenuating to non-significance after adjusting for ownership/region/size (β=0.007, p=0.25); paper is centered on the *reallocation*, with SVI as a transparent redistribution lever, not a claimed better predictor.
 - **Ecological** assignment (county SVI ≠ patient mix); triangulate with patient-level social risk.
 - Name-based county join (~97%); CAHs are statutorily HRRP-exempt (cohort = acute-care subsection-(d)).
 
